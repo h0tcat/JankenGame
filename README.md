@@ -1,0 +1,2 @@
+# JankenGame
+Javaで作ったじゃんけんゲームです
