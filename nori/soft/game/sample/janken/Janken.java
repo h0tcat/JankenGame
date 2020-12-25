@@ -70,7 +70,7 @@ public class Janken {
                 || (players[0].hand == Hand.PAPER && players[1].hand == Hand.ROCK);
         this.isCpuWinYouLose=!this.isYouWinCpuLose;
         this.isDraw = players[0].hand.equals(players[1].hand);
-        
+
         if (this.isYouWinCpuLose) {
             System.out.println("あなたの勝ち!");
             this.players[0].winCount++;
@@ -139,5 +139,6 @@ public class Janken {
             commandNumber = -1;
         }
         System.out.println("また遊んでね!");
+        System.exit(0);
     }
 }
