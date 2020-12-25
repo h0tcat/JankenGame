@@ -69,10 +69,8 @@ public class Janken {
                 || (players[0].hand == Hand.SCISSORS && players[1].hand == Hand.PAPER)
                 || (players[0].hand == Hand.PAPER && players[1].hand == Hand.ROCK);
         this.isCpuWinYouLose=!this.isYouWinCpuLose;
-        //this.isCpuWinYouLose = (players[1].hand == Hand.ROCK && players[0].hand == Hand.SCISSORS)
-        //        || (players[1].hand == Hand.SCISSORS && players[0].hand == Hand.PAPER)
-        //        || (players[1].hand == Hand.PAPER && players[0].hand == Hand.ROCK);
         this.isDraw = players[0].hand.equals(players[1].hand);
+        
         if (this.isYouWinCpuLose) {
             System.out.println("あなたの勝ち!");
             this.players[0].winCount++;
