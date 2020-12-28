@@ -75,23 +75,24 @@ public class Janken {
         this.isCpuWinYouLose=!this.isYouWinCpuLose;
         this.isDraw = players[0].hand.equals(players[1].hand);
 
-        if (this.isYouWinCpuLose) {
-            System.out.println("あなたの勝ち!");
-            this.players[0].winCount++;
-            this.players[1].loseCount++;
-
-            return this.isYouWinCpuLose;
+        if (this.isDraw) {
+            System.out.println("引き分け!");
+            return this.isDraw;
         } else if (this.isCpuWinYouLose) {
             System.out.println("CPUの勝ち!");
             this.players[1].winCount++;
             this.players[0].loseCount++;
 
             return this.isCpuWinYouLose;
-        } else {
-            System.out.println("引き分け!");
-
-            return this.isDraw;
+        } else if(this.isYouWinCpuLose){
+            System.out.println("あなたの勝ち!");
+            this.players[0].winCount++;
+            this.players[1].loseCount++;
+            
+            return this.isYouWinCpuLose;
         }
+
+        return false;
     }
 
     private void PrintWinLoseHistory() {
@@ -117,6 +118,10 @@ public class Janken {
             while (true) {
                 System.out.print("番号でコマンドを入力してください >");
                 this.userCommand = this.inputScanner.nextLine();
+                if (this.userCommand.equals("q")){
+                    System.out.println("また遊んでね");
+                    System.exit(0);
+                }
                 try {
                     commandNumber = Integer.parseInt(this.userCommand);
                     if (commandNumber <0 || commandNumber > 2)
@@ -124,10 +129,6 @@ public class Janken {
                     else break;
                 } catch (NumberFormatException NumberEx) {
                     System.out.println("コマンドを認識できません");
-                }
-                if (this.userCommand.equals("q")){
-                    System.out.println("また遊んでね");
-                    System.exit(0);
                 }
             }
 
